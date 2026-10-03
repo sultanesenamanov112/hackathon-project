@@ -64,7 +64,7 @@ app.post("/api/analyze", upload.single("image"), async (request, response) => {
     const imageDataUrl = `data:${request.file.mimetype};base64,${request.file.buffer.toString("base64")}`;
 
     const aiResponse = await openai.responses.create({
-      model: "gpt-4o-mini",
+      model: "gpt-5.6-terra",
       store: false,
       instructions:
         "You are a careful historical clothing researcher. Keep every field concise. Base claims only on visible evidence and general historical knowledge. Clearly state uncertainty when era, region, wearer, or material cannot be determined from the image alone. Never invent provenance or ownership.",
