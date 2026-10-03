@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Upload and preview a historical garment in a refined digital museum setting.">
+  <title>Threads of History</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Threads of History home">
+      <span class="brand-mark" aria-hidden="true">TH</span>
+      <span>Threads of History</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+      <a href="#upload">Upload a garment</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="eyebrow">A digital museum experience</p>
+      <h1 id="hero-title">Every garment holds<br>a human story.</h1>
+      <p class="hero-copy">
+        Begin with a photograph. Upload a historical garment and view it in a quiet,
+        considered space built for close looking.
+      </p>
+    </section>
+
+    <section class="upload-section" id="upload" aria-labelledby="upload-heading">
+      <div class="section-heading">
+        <p class="section-number">01</p>
+        <div>
+          <h2 id="upload-heading">Add a garment</h2>
+          <p>Choose a clear photograph from your device.</p>
+        </div>
+      </div>
+
+      <div
+        class="drop-zone"
+        id="drop-zone"
+        role="button"
+        tabindex="0"
+        aria-label="Upload a historical garment image"
+        aria-describedby="upload-instructions"
+      >
+        <input id="garment-upload" type="file" accept="image/*">
+
+        <div class="empty-state" id="empty-state">
+          <span class="upload-symbol" aria-hidden="true"></span>
+          <p class="upload-title">Place your garment here</p>
+          <p class="upload-instructions" id="upload-instructions">
+            Drag and drop an image, or <span>browse your files</span>
+          </p>
+          <p class="file-types">JPG, PNG, WEBP</p>
+        </div>
+
+        <div class="preview-state" id="preview-state" aria-hidden="true">
+          <div class="image-stage">
+            <img id="image-preview" alt="Preview of the selected historical garment">
+          </div>
+
+          <div class="preview-details">
+            <div>
+              <p class="file-label">Selected image</p>
+              <p class="file-name" id="file-name"></p>
+            </div>
+            <button class="choose-again-button" id="choose-again" type="button">
+              Choose another image
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Threads of History</p>
+    <p>Look closely. History is in the details.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
