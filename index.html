@@ -80,10 +80,107 @@
       </div>
 
       <section class="analysis-panel" id="analysis-panel" aria-labelledby="analysis-heading" hidden>
-        <p class="analysis-label">Analysis</p>
-        <h3 id="analysis-heading">Garment findings</h3>
-        <p class="analysis-status" id="analysis-status" role="status"></p>
-        <dl class="analysis-results" id="analysis-results"></dl>
+        <div class="analysis-intro" id="analysis-intro">
+          <p class="analysis-label">Conservation study</p>
+          <h3 id="analysis-heading">Examining the garment</h3>
+          <p class="analysis-status" id="analysis-status" role="status"></p>
+        </div>
+
+        <div class="artifact-experience" id="guided-exhibit" hidden>
+          <header class="experience-bar">
+            <div>
+              <p class="experience-kicker">Object study</p>
+              <p class="experience-object" id="experience-object">Unidentified garment</p>
+            </div>
+            <button class="experience-reset" id="experience-reset" type="button">Choose another garment</button>
+          </header>
+
+          <div class="experience-shell">
+            <figure class="artifact-stage" id="artifact-frame">
+              <div class="artifact-media" id="artifact-media">
+                <img
+                  class="artifact-image is-active"
+                  id="displayed-image"
+                  alt="Uploaded historical garment with interactive details"
+                >
+                <img
+                  class="artifact-image artifact-image-worn"
+                  id="worn-image"
+                  alt="Generated historically informed reconstruction of a person wearing the garment"
+                >
+                <div class="artifact-spotlight" id="artifact-spotlight" aria-hidden="true"></div>
+                <div class="hotspot-layer" id="hotspot-layer" aria-label="Visible garment details"></div>
+              </div>
+
+              <div class="artifact-sweep" aria-hidden="true"></div>
+
+              <div class="generation-state" id="generation-state" hidden>
+                <p>Reconstruction in progress</p>
+                <h4>Returning the garment to the body</h4>
+                <p class="reconstruction-status" id="reconstruction-status" role="status"></p>
+              </div>
+
+              <figcaption class="stage-caption">
+                <span id="stage-caption-label">Displayed artifact</span>
+                <span id="stage-file-name"></span>
+              </figcaption>
+
+              <div class="view-toggle stage-toggle" id="view-toggle" role="group" aria-label="Garment view" hidden>
+                <button class="view-toggle-button is-active" id="displayed-view" type="button" aria-pressed="true">
+                  Displayed
+                </button>
+                <button class="view-toggle-button" id="worn-view" type="button" aria-pressed="false">
+                  Worn
+                </button>
+              </div>
+            </figure>
+
+            <aside class="narrative-stage">
+              <div class="narrative-progress" aria-hidden="true">
+                <p id="progress-label">Discovery 01 of 05</p>
+                <div class="progress-rule"><span id="progress-fill"></span></div>
+              </div>
+
+              <nav class="chapter-index" aria-label="Garment discoveries">
+                <button class="chapter-button is-active" type="button" data-step="0" disabled><span>01</span> Identity</button>
+                <button class="chapter-button" type="button" data-step="1" disabled><span>02</span> Origin</button>
+                <button class="chapter-button" type="button" data-step="2" disabled><span>03</span> Wearer</button>
+                <button class="chapter-button" type="button" data-step="3" disabled><span>04</span> Making</button>
+                <button class="chapter-button" type="button" data-step="4" disabled><span>05</span> Context</button>
+              </nav>
+
+              <div class="narrative-content">
+              <article class="reveal-card is-visible" id="reveal-card" aria-live="polite">
+                <p class="reveal-number" id="reveal-number"></p>
+                <h4 id="reveal-title"></h4>
+                <div class="reveal-copy" id="reveal-copy"></div>
+              </article>
+
+              <aside class="hotspot-detail" id="hotspot-detail" hidden>
+                <p class="hotspot-detail-label">Visible detail</p>
+                <h5 id="hotspot-title"></h5>
+                <p id="hotspot-description"></p>
+              </aside>
+
+              <div class="reveal-controls" id="reveal-controls">
+                <button class="reveal-back" id="reveal-back" type="button" hidden>Previous</button>
+                <button class="reveal-next" id="reveal-next" type="button">Continue</button>
+              </div>
+
+              <div class="reveal-completion" id="reveal-completion" hidden>
+                <p class="completion-eyebrow">The final restoration</p>
+                <h4>Return it to the body.</h4>
+                <p>Reconstruct a historically plausible wearer from the garment and its inferred context.</p>
+                <button class="reconstruct-button" id="reconstruct-button" type="button">
+                  See it worn in context
+                </button>
+                <p class="reconstruction-error" id="reconstruction-error" role="status"></p>
+                <button class="explore-button" id="explore-button" type="button">Explore all findings</button>
+              </div>
+              </div>
+            </aside>
+          </div>
+        </div>
       </section>
     </section>
   </main>
