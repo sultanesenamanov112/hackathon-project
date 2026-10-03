@@ -67,12 +67,24 @@
               <p class="file-label">Selected image</p>
               <p class="file-name" id="file-name"></p>
             </div>
-            <button class="choose-again-button" id="choose-again" type="button">
-              Choose another image
-            </button>
+            <div class="preview-actions">
+              <button class="analyze-button" id="analyze-button" type="button">
+                Analyze garment
+              </button>
+              <button class="choose-again-button" id="choose-again" type="button">
+                Choose another image
+              </button>
+            </div>
           </div>
         </div>
       </div>
+
+      <section class="analysis-panel" id="analysis-panel" aria-labelledby="analysis-heading" hidden>
+        <p class="analysis-label">Analysis</p>
+        <h3 id="analysis-heading">Garment findings</h3>
+        <p class="analysis-status" id="analysis-status" role="status"></p>
+        <dl class="analysis-results" id="analysis-results"></dl>
+      </section>
     </section>
   </main>
 

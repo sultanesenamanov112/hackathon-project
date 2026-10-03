@@ -352,6 +352,34 @@ h1 {
   margin: 0;
 }
 
+.preview-actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.analyze-button {
+  padding: 11px 17px;
+  border: 1px solid var(--oxblood);
+  color: var(--text-primary);
+  background: var(--oxblood);
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 650;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.analyze-button:hover:not(:disabled) {
+  border-color: var(--oxblood-light);
+  background: var(--oxblood-light);
+  transform: translateY(-1px);
+}
+
+.analyze-button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
 .file-label {
   margin-bottom: 6px;
   color: var(--text-secondary);
@@ -389,6 +417,7 @@ h1 {
 }
 
 .choose-again-button:focus-visible,
+.analyze-button:focus-visible,
 .brand:focus-visible,
 nav a:focus-visible {
   outline: 2px solid var(--oxblood-light);
@@ -412,6 +441,71 @@ nav a:focus-visible {
   transform: translateY(0);
   visibility: visible;
   pointer-events: auto;
+}
+
+.analysis-panel {
+  margin-top: 48px;
+  padding: 42px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.analysis-label {
+  margin: 0 0 10px;
+  color: var(--archive-brown);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.analysis-panel h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+
+.analysis-status {
+  margin: 22px 0 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.analysis-status:empty {
+  display: none;
+}
+
+.analysis-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 44px;
+  margin: 32px 0 0;
+}
+
+.analysis-item {
+  padding: 22px 0;
+  border-top: 1px solid var(--border);
+}
+
+.analysis-item dt {
+  margin-bottom: 9px;
+  color: var(--text-secondary);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.analysis-item dd {
+  margin: 0;
+  line-height: 1.65;
+}
+
+.analysis-item ul {
+  margin: 0;
+  padding-left: 18px;
 }
 
 .site-footer {
@@ -483,6 +577,16 @@ nav a:focus-visible {
     align-items: flex-start;
     flex-direction: column;
     gap: 12px;
+  }
+
+  .preview-actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .analysis-results {
+    grid-template-columns: 1fr;
   }
 
   .file-name {
