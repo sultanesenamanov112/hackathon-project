@@ -722,6 +722,7 @@ function enableExploration(focusFirst = true) {
     tab.disabled = false;
   });
   guidedExhibit.classList.add("is-exploring");
+  guidedExhibit.classList.remove("is-showing-final-story");
   revealCompletion.hidden = true;
   finalStory.hidden = true;
   revealCard.hidden = false;
@@ -747,6 +748,7 @@ function showFinalStory() {
   }
 
   populateFinalStory();
+  guidedExhibit.classList.add("is-showing-final-story");
   findingTabs.forEach((tab) => {
     tab.disabled = false;
     tab.classList.add("is-visited");

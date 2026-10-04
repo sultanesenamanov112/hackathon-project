@@ -1475,6 +1475,59 @@ a {
   line-height: 1.5;
 }
 
+/* Keep the post-reconstruction record inside the exhibit and clear of the view toggle. */
+.artifact-experience.is-showing-final-story .narrative-content {
+  top: 78px;
+  right: 3%;
+  bottom: 112px;
+  left: auto;
+  width: min(330px, 26%);
+  max-height: none;
+  padding-right: 10px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  transform: none;
+}
+
+.artifact-experience.is-showing-final-story .final-story {
+  margin-top: 0;
+  padding-top: 18px;
+}
+
+.artifact-experience.is-showing-final-story .final-story h4 {
+  margin-top: 8px;
+  font-size: clamp(1.85rem, 2.6vw, 3rem);
+  line-height: 0.96;
+}
+
+.artifact-experience.is-showing-final-story .final-story dl {
+  margin-top: 18px;
+}
+
+.artifact-experience.is-showing-final-story .final-story dl div {
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 12px;
+  padding: 9px 0;
+}
+
+.artifact-experience.is-showing-final-story .final-story dd {
+  overflow-wrap: anywhere;
+  font-size: 0.84rem;
+  line-height: 1.36;
+}
+
+.artifact-experience.is-showing-final-story .story-disclaimer {
+  margin-top: 14px;
+  font-size: 0.68rem;
+  line-height: 1.42;
+}
+
+.artifact-experience.is-showing-final-story .final-story .explore-button {
+  margin-top: 10px;
+}
+
 .worn-scene,
 .cinematic-brand,
 .cinematic-exit,
@@ -2049,6 +2102,15 @@ button:disabled {
     transform: none;
   }
 
+  .artifact-experience.is-showing-final-story .narrative-content {
+    position: static;
+    width: auto;
+    max-height: none;
+    padding-right: 0;
+    overflow: visible;
+    transform: none;
+  }
+
   .artifact-stage[data-annotation-placement="bottom"] .artifact-media {
     bottom: 58px;
   }
@@ -2251,6 +2313,11 @@ button:disabled {
   }
 
   .final-story dl div {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .artifact-experience.is-showing-final-story .final-story dl div {
     grid-template-columns: 1fr;
     gap: 5px;
   }
