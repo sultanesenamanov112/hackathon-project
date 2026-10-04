@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Upload and preview a historical garment in a refined digital museum setting.">
+  <meta name="description" content="Investigate a historical garment through visible evidence, historical context, and a carefully labeled worn reconstruction.">
   <title>Threads of History</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -13,183 +13,185 @@
       <span class="brand-mark" aria-hidden="true">TH</span>
       <span>Threads of History</span>
     </a>
-
-    <nav aria-label="Main navigation">
-      <a href="#upload">Upload a garment</a>
-    </nav>
+    <a class="header-action" href="#upload">Begin an investigation</a>
   </header>
 
   <main id="top">
-    <section class="hero" aria-labelledby="hero-title">
-      <p class="eyebrow">A digital museum experience</p>
-      <h1 id="hero-title">Every garment holds<br>a human story.</h1>
-      <p class="hero-copy">
-        Begin with a photograph. Upload a historical garment and view it in a quiet,
-        considered space built for close looking.
-      </p>
+    <section class="opening-exhibit" aria-labelledby="hero-title">
+      <div class="opening-catalog" aria-hidden="true">
+        <span>Digital archive</span>
+        <span>Object study 001</span>
+      </div>
+      <div class="opening-copy">
+        <p class="eyebrow">An interactive garment investigation</p>
+        <h1 id="hero-title">What can clothing<br>remember?</h1>
+        <p class="hero-copy">Begin with an object. Examine what can be seen, place it carefully in context, then imagine how it may once have lived on the body.</p>
+        <button class="primary-action" id="begin-button" type="button">Begin an investigation <span aria-hidden="true">↓</span></button>
+      </div>
+      <ol class="process-line" aria-label="Investigation process">
+        <li><span>01</span><strong>Object</strong><small>Submit the garment</small></li>
+        <li><span>02</span><strong>Evidence</strong><small>Read visible details</small></li>
+        <li><span>03</span><strong>Interpretation</strong><small>Build careful context</small></li>
+        <li><span>04</span><strong>Human</strong><small>Return it to the body</small></li>
+      </ol>
     </section>
 
     <section class="upload-section" id="upload" aria-labelledby="upload-heading">
-      <div class="section-heading">
-        <p class="section-number">01</p>
+      <header class="section-heading">
         <div>
-          <h2 id="upload-heading">Add a garment</h2>
-          <p>Choose a clear photograph from your device.</p>
+          <p class="section-number">Archive intake / 01</p>
+          <h2 id="upload-heading">Submit an artifact.</h2>
         </div>
-      </div>
+        <p>One clear photograph is enough to begin. The original garment remains the primary evidence throughout the investigation.</p>
+      </header>
 
-      <div
-        class="drop-zone"
-        id="drop-zone"
-        role="button"
-        tabindex="0"
-        aria-label="Upload a historical garment image"
-        aria-describedby="upload-instructions"
-      >
-        <input id="garment-upload" type="file" accept="image/*">
-
+      <div class="drop-zone" id="drop-zone" role="button" tabindex="0" aria-label="Upload a historical garment image" aria-describedby="upload-instructions upload-error">
+        <input id="garment-upload" type="file" accept="image/jpeg,image/png,image/webp">
         <div class="empty-state" id="empty-state">
-          <span class="upload-symbol" aria-hidden="true"></span>
-          <p class="upload-title">Place your garment here</p>
-          <p class="upload-instructions" id="upload-instructions">
-            Drag and drop an image, or <span>browse your files</span>
-          </p>
-          <p class="file-types">JPG, PNG, WEBP</p>
-        </div>
-
-        <div class="preview-state" id="preview-state" aria-hidden="true">
-          <div class="image-stage">
-            <img id="image-preview" alt="Preview of the selected historical garment">
+          <div class="intake-mark" aria-hidden="true"><span>+</span></div>
+          <div>
+            <p class="upload-title">Add a garment to the collection</p>
+            <p class="upload-instructions" id="upload-instructions">Drop an image here or <span>browse your files</span></p>
           </div>
-
+          <p class="file-types">JPG / PNG / WEBP · Maximum 10 MB</p>
+        </div>
+        <div class="preview-state" id="preview-state" aria-hidden="true">
+          <figure class="intake-preview">
+            <span class="preview-index">Submitted object</span>
+            <div class="image-stage"><img id="image-preview" alt="Preview of the selected historical garment"></div>
+          </figure>
           <div class="preview-details">
             <div>
-              <p class="file-label">Selected image</p>
+              <p class="file-label">Archive filename</p>
               <p class="file-name" id="file-name"></p>
+              <p class="preview-note">This photograph will be examined for visible form, construction, and contextual clues.</p>
             </div>
             <div class="preview-actions">
-              <button class="analyze-button" id="analyze-button" type="button">
-                Analyze garment
-              </button>
-              <button class="choose-again-button" id="choose-again" type="button">
-                Choose another image
-              </button>
+              <button class="analyze-button" id="analyze-button" type="button">Begin analysis <span aria-hidden="true">→</span></button>
+              <button class="choose-again-button" id="choose-again" type="button">Replace image</button>
             </div>
           </div>
         </div>
       </div>
+      <p class="upload-error" id="upload-error" role="status"></p>
 
       <section class="analysis-panel" id="analysis-panel" aria-labelledby="analysis-heading" hidden>
         <div class="analysis-intro" id="analysis-intro">
-          <p class="analysis-label">Conservation study</p>
-          <h3 id="analysis-heading">Examining the garment</h3>
-          <p class="analysis-status" id="analysis-status" role="status"></p>
+          <div class="analysis-scan" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="analysis-heading-group">
+            <p class="analysis-label">Investigation active</p>
+            <h3 id="analysis-heading">Reading the garment.</h3>
+            <p class="analysis-status" id="analysis-status" role="status"></p>
+          </div>
+          <ol class="analysis-stages" id="analysis-stages" aria-label="Analysis progress">
+            <li class="is-active">Reading the silhouette</li>
+            <li>Examining visible construction</li>
+            <li>Dating stylistic details</li>
+            <li>Evaluating materials and wear</li>
+            <li>Building historical context</li>
+          </ol>
         </div>
 
         <div class="artifact-experience" id="guided-exhibit" hidden>
           <header class="experience-bar">
-            <div>
-              <p class="experience-kicker">Object study</p>
-              <p class="experience-object" id="experience-object">Unidentified garment</p>
-            </div>
-            <button class="experience-reset" id="experience-reset" type="button">Choose another garment</button>
+            <div><p class="experience-kicker">Active object study</p><p class="experience-object" id="experience-object">Unidentified garment</p></div>
+            <button class="experience-reset" id="experience-reset" type="button">Submit another artifact</button>
           </header>
-
           <div class="experience-shell">
             <figure class="artifact-stage" id="artifact-frame">
-              <div class="artifact-media" id="artifact-media">
-                <img
-                  class="artifact-image is-active"
-                  id="displayed-image"
-                  alt="Uploaded historical garment with interactive details"
-                >
-                <img
-                  class="artifact-image artifact-image-worn"
-                  id="worn-image"
-                  alt="Generated historically informed reconstruction of a person wearing the garment"
-                >
-                <div class="artifact-spotlight" id="artifact-spotlight" aria-hidden="true"></div>
-                <div class="hotspot-layer" id="hotspot-layer" aria-label="Visible garment details"></div>
+              <div class="archive-measurements" aria-hidden="true"><span class="measure-top">Object / front elevation</span><span class="measure-side">Visible evidence only</span></div>
+              <div class="worn-scene" aria-hidden="true">
+                <div class="worn-window"><span></span><span></span></div><div class="worn-halo"></div>
+                <div class="worn-panels"><span></span><span></span><span></span></div><div class="worn-floor"></div>
               </div>
-
+              <div class="cinematic-brand" aria-hidden="true"><span class="cinematic-monogram">TH</span><span>Threads of History</span></div>
+              <button class="cinematic-exit" id="cinematic-exit" type="button"><span aria-hidden="true">←</span> Back to discoveries</button>
+              <div class="artifact-media" id="artifact-media">
+                <img class="artifact-image is-active" id="displayed-image" alt="Uploaded historical garment with interactive evidence markers">
+                <img class="artifact-image artifact-image-worn" id="worn-image" alt="Generated historically informed interpretation of a person wearing the garment">
+                <div class="artifact-spotlight" id="artifact-spotlight" aria-hidden="true"></div>
+                <div class="hotspot-layer" id="hotspot-layer" aria-label="Visible garment evidence"></div>
+              </div>
               <div class="artifact-sweep" aria-hidden="true"></div>
-
               <div class="generation-state" id="generation-state" hidden>
-                <p>Reconstruction in progress</p>
-                <h4>Returning the garment to the body</h4>
+                <p>Historically informed interpretation</p>
+                <h4>Returning the garment to the body.</h4>
+                <p>Building from visible construction and cautiously inferred context—not inventing a verified owner.</p>
+                <div class="generation-line" aria-hidden="true"><span></span></div>
                 <p class="reconstruction-status" id="reconstruction-status" role="status"></p>
               </div>
-
-              <figcaption class="stage-caption">
-                <span id="stage-caption-label">Displayed artifact</span>
-                <span id="stage-file-name"></span>
-              </figcaption>
-
-              <div class="view-toggle stage-toggle" id="view-toggle" role="group" aria-label="Garment view" hidden>
-                <button class="view-toggle-button is-active" id="displayed-view" type="button" aria-pressed="true">
-                  Displayed
-                </button>
-                <button class="view-toggle-button" id="worn-view" type="button" aria-pressed="false">
-                  Worn
-                </button>
+              <figcaption class="stage-caption"><span id="stage-caption-label">Artifact / source image</span><span id="stage-caption-context"></span></figcaption>
+              <div class="worn-story">
+                <p>Historically informed interpretation</p>
+                <h4>A possible life,<br>returned to view.</h4>
+                <p>This image is an interpretation built from visible evidence—not a portrait of a verified historical wearer.</p>
+              </div>
+              <div class="view-toggle stage-toggle" id="view-toggle" role="group" aria-label="Compare artifact and reconstruction" hidden>
+                <button class="view-toggle-button is-active" id="displayed-view" type="button" aria-pressed="true">Artifact</button>
+                <button class="view-toggle-button" id="worn-view" type="button" aria-pressed="false">Reconstruction</button>
               </div>
             </figure>
 
             <aside class="narrative-stage">
-              <div class="narrative-progress" aria-hidden="true">
-                <p id="progress-label">Discovery 01 of 05</p>
-                <div class="progress-rule"><span id="progress-fill"></span></div>
-              </div>
-
+              <div class="narrative-progress" aria-hidden="true"><p id="progress-label">Discovery 01 of 05</p><div class="progress-rule"><span id="progress-fill"></span></div></div>
               <nav class="chapter-index" aria-label="Garment discoveries">
                 <button class="chapter-button is-active" type="button" data-step="0" disabled><span>01</span> Identity</button>
                 <button class="chapter-button" type="button" data-step="1" disabled><span>02</span> Origin</button>
                 <button class="chapter-button" type="button" data-step="2" disabled><span>03</span> Wearer</button>
-                <button class="chapter-button" type="button" data-step="3" disabled><span>04</span> Making</button>
+                <button class="chapter-button" type="button" data-step="3" disabled><span>04</span> Construction</button>
                 <button class="chapter-button" type="button" data-step="4" disabled><span>05</span> Context</button>
               </nav>
-
               <div class="narrative-content">
-              <article class="reveal-card is-visible" id="reveal-card" aria-live="polite">
-                <p class="reveal-number" id="reveal-number"></p>
-                <h4 id="reveal-title"></h4>
-                <div class="reveal-copy" id="reveal-copy"></div>
-              </article>
-
-              <aside class="hotspot-detail" id="hotspot-detail" hidden>
-                <p class="hotspot-detail-label">Visible detail</p>
-                <h5 id="hotspot-title"></h5>
-                <p id="hotspot-description"></p>
-              </aside>
-
-              <div class="reveal-controls" id="reveal-controls">
-                <button class="reveal-back" id="reveal-back" type="button" hidden>Previous</button>
-                <button class="reveal-next" id="reveal-next" type="button">Continue</button>
-              </div>
-
-              <div class="reveal-completion" id="reveal-completion" hidden>
-                <p class="completion-eyebrow">The final restoration</p>
-                <h4>Return it to the body.</h4>
-                <p>Reconstruct a historically plausible wearer from the garment and its inferred context.</p>
-                <button class="reconstruct-button" id="reconstruct-button" type="button">
-                  See it worn in context
-                </button>
-                <p class="reconstruction-error" id="reconstruction-error" role="status"></p>
-                <button class="explore-button" id="explore-button" type="button">Explore all findings</button>
-              </div>
+                <article class="reveal-card is-visible" id="reveal-card" aria-live="polite">
+                  <p class="reveal-number" id="reveal-number"></p><h4 id="reveal-title"></h4><div class="reveal-copy" id="reveal-copy"></div>
+                  <button class="full-finding-button" id="full-finding-button" type="button">Read full finding</button>
+                </article>
+                <aside class="hotspot-detail" id="hotspot-detail" hidden>
+                  <p class="hotspot-detail-label">Visible evidence</p><h5 id="hotspot-title"></h5><p id="hotspot-description"></p>
+                </aside>
+                <div class="reveal-controls" id="reveal-controls">
+                  <button class="reveal-back" id="reveal-back" type="button" hidden>Previous</button>
+                  <button class="reveal-next" id="reveal-next" type="button">Continue <span aria-hidden="true">→</span></button>
+                </div>
+                <div class="reveal-completion" id="reveal-completion" hidden>
+                  <p class="completion-eyebrow">Investigation complete</p>
+                  <h4>Who might have lived in this garment?</h4>
+                  <p>The evidence has been gathered. Now create one cautious visual interpretation of the garment returned to a human body.</p>
+                  <button class="reconstruct-button" id="reconstruct-button" type="button">Return it to the body <span aria-hidden="true">→</span></button>
+                  <p class="reconstruction-error" id="reconstruction-error" role="status"></p>
+                  <button class="explore-button" id="explore-button" type="button">Explore all findings</button>
+                </div>
+                <section class="final-story" id="final-story" aria-labelledby="final-story-title" hidden>
+                  <p class="completion-eyebrow">Investigation record</p>
+                  <h4 id="final-story-title">What the object allows us to say.</h4>
+                  <dl>
+                    <div><dt>Identity</dt><dd id="story-identity"></dd></div>
+                    <div><dt>Place and period</dt><dd id="story-origin"></dd></div>
+                    <div><dt>Strongest visible evidence</dt><dd id="story-evidence"></dd></div>
+                    <div><dt>Likely wearer or use</dt><dd id="story-wearer"></dd></div>
+                    <div><dt>Important uncertainty</dt><dd id="story-uncertainty"></dd></div>
+                  </dl>
+                  <p class="story-disclaimer">The reconstruction is a historically informed interpretation, not an image of a verified owner or exact historical moment.</p>
+                  <button class="explore-button" id="story-explore-button" type="button">Review the discoveries</button>
+                </section>
               </div>
             </aside>
           </div>
+          <dialog class="full-finding-dialog" id="full-finding-dialog" aria-labelledby="full-finding-title">
+            <div class="full-finding-dialog-bar">
+              <div>
+                <p class="completion-eyebrow">Complete analysis</p>
+                <h4 id="full-finding-title">Full finding</h4>
+              </div>
+              <button class="full-finding-close" id="full-finding-close" type="button" aria-label="Close full finding">Close</button>
+            </div>
+            <div class="full-finding-content" id="full-finding-content"></div>
+          </dialog>
         </div>
       </section>
     </section>
   </main>
-
-  <footer class="site-footer">
-    <p>Threads of History</p>
-    <p>Look closely. History is in the details.</p>
-  </footer>
-
+  <footer class="site-footer"><p>Threads of History</p><p>The object is evidence. Interpretation follows.</p></footer>
   <script src="app.js"></script>
 </body>
 </html>
